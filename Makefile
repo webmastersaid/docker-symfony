@@ -31,16 +31,14 @@ down:
 	${DOCKER_COMPOSE} down -v --rmi=all --remove-orphans
 
 restart:
-	make dc_stop dc_start
+	make stop start
 
 
 ##################
 # App
 ##################
 
-app_bash:
-	${DOCKER_COMPOSE} exec -u www-data php-fpm bash
-php:
+bash:
 	${DOCKER_COMPOSE} exec -u www-data php-fpm bash
 test:
 	${DOCKER_COMPOSE} exec -u www-data php-fpm bin/phpunit
